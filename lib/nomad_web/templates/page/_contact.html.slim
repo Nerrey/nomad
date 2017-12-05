@@ -1,0 +1,74 @@
+section.contact.section-padding[data-scroll-index="7"]
+  .container
+    .row
+      .col-md-7
+        h4.head-left
+          | Get In Touch
+        form#contact-form.form[method="post" action="contact.php"]
+          .messages
+          .controls
+            .row
+              .col-md-6
+                .form-group
+                  input#form_name[type="text" name="name" placeholder="Name" required="required" data-error="Firstname is required."]
+                  .help-block.with-errors
+              .col-md-6
+                .form-group
+                  input#form_email[type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required."]
+                  .help-block.with-errors
+            .row
+              .col-md-12
+                .form-group
+                  input#form_subject[type="text" name="subject" placeholder="Subject"]
+                  .help-block.with-errors
+            .row
+              .col-md-12
+                .form-group
+                  textarea#form_message[name="message" placeholder="Message" rows="4" required="required" data-error="Message."]
+                  .help-block.with-errors
+              .col-sm-12
+                input[type="submit" value="Send message"]
+      .col-md-offset-1.col-md-4
+        .info
+          .item
+            span.icon.ion-android-call
+            h6
+              | Phone :
+              br
+              span
+                | +2 ( 100 ) 755 238
+          .item
+            span.icon.ion-ios-location
+            h6
+              | Address :
+              br
+              span
+                | 3481 Melrose Place,
+                br
+                | Los Angeles
+          .item
+            span.icon.ion-ios-email
+            h6
+              | Email :
+              br
+              span
+                | alexmartin@gmail.com
+          .social-icon
+            a[href="#0"]
+              span
+                i.fa.fa-facebook[aria-hidden="true"]
+            a[href="#0"]
+              span
+                i.fa.fa-twitter[aria-hidden="true"]
+            a[href="#0"]
+              span
+                i.fa.fa-linkedin[aria-hidden="true"]
+            a[href="#0"]
+              span
+                i.fa.fa-pinterest-p[aria-hidden="true"]
+            a[href="#0"]
+              span
+                i.fa.fa-instagram[aria-hidden="true"]
+      .col-sm-12.text-center
+        p.copy
+          | Copy Right © By AlexMartin 2017 | ALL RIGHTS RESERVED
