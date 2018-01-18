@@ -1,0 +1,26 @@
+.page-header
+  h1.clearfix
+    .pull-left= @admin.name
+    .pull-right
+      .display_flex.flex_row
+        = link to: admin_admin_path(@conn, :edit, @admin), class: "btn btn-default" do
+          span.glyphicon.glyphicon-pencil.right_10 aria-hidden="true"
+          = gettext("Изменить")
+        = link to: admin_admin_path(@conn, :delete, @admin), method: :delete, data: [confirm: gettext("Вы уверены?")], class: "btn btn-danger button_delete_in_show" do
+          span.glyphicon.glyphicon-trash.right_10 aria-hidden="true"
+          = gettext("Удалить")
+        = link to: admin_admin_path(@conn, :index), class: "btn btn-default" do
+          span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
+          = gettext("Все администраторы")
+
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading= gettext "Основная информация"
+      .panel-body.no_margin_last
+        dl.dl-horizontal
+          dt.bottom_5= gettext("Имя")
+          dd= @admin.name
+
+  .col-md-6
+

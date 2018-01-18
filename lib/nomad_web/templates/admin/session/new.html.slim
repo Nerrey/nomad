@@ -1,0 +1,14 @@
+.row
+  .col-md-4.col-md-offset-4 style="margin-top: 150px"
+    .panel.panel-default
+      .panel-body
+        = form_for @conn, admin_session_path(@conn, :create), [as: :session], fn f ->
+          .form-group
+            = label f, :name, "Логин", class: "control-label"
+            = text_input f, :name, class: "form-control"
+            = error_tag f, :name
+          .form-group
+            = label f, :password, "Пароль", class: "control-label"
+            = password_input f, :password, class: "form-control"
+          .form-group
+            = submit "Войти", class: "btn btn-primary btn-block"

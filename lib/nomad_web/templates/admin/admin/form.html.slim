@@ -1,0 +1,19 @@
+= form_for @changeset, @action, [class: "form-horizontal"], fn f ->
+  .row
+    .col-md-8.col-md-offset-2
+      .panel.panel-default
+        .panel-heading= gettext("Информация пользователя")
+        .panel-body.no_margin_last
+          .form-group.required
+            = label f, gettext("Имя"), class: "col-sm-5 control-label"
+            .col-sm-7
+              = text_input f, :name, class: "form-control"
+              = error_tag f, :name
+          .form-group.required
+            = label f, gettext("Пароль"), class: "col-sm-5 control-label"
+            .col-sm-7
+              = text_input f, :password, class: "form-control"
+              = error_tag f, :password
+        .form-group.text-center
+          = submit gettext("Сохранить"), class: "btn btn-success"
+

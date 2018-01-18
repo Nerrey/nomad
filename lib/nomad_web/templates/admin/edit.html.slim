@@ -1,0 +1,9 @@
+.page-header
+  h1.clearfix
+    .pull-left= gettext "Администратор # %{admin_id}", admin_id: @admin.id
+    .pull-right
+      = link to: admin_admin_path(@conn, :index), class: "btn btn-default" do
+        span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
+        = gettext("Все пользователи")
+
+= render "form.html", changeset: @changeset, conn: @conn, action: admin_admin_path(@conn, :update, @admin)

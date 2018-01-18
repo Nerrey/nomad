@@ -1,0 +1,20 @@
+.page-header
+  h1.clearfix
+    .pull-left
+      = gettext "Администраторы (%{total_count})", total_count: length(@admins)
+    .pull-right
+      = link gettext("Новый администратор"), to: admin_admin_path(@conn, :new), class: "btn btn-default"
+.row
+  .col-xs-12
+    table.table.table-striped
+      thead
+        tr
+          th #
+          th= gettext "Имя"
+          th
+      tbody
+        = for admin <- @admins do
+          tr
+            td= link admin.id, to: admin_admin_path(@conn, :show, admin)
+            td= link admin.name, to: admin_admin_path(@conn, :show, admin)
+            td.text-right= link gettext("Показать"), to: admin_admin_path(@conn, :show, admin), class: "btn btn-default btn-xs"
