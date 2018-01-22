@@ -8,43 +8,7 @@
     i.fa.fa-angle-up aria-hidden="true"
 /! ======End button-top ======
 /! ====== Navgition ======
-nav.navbar.navbar-default
-  .container
-    /! Brand and toggle get grouped for better mobile display
-    .navbar-header
-      button.navbar-toggle.collapsed aria-expanded="false" data-target="#nav-icon-collapse" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      /! logo
-      a href="#"
-      .logo
-        | Ma
-        span> r
-        | tin
-    /! Collect the nav links, and other content for toggling
-    #nav-icon-collapse.collapse.navbar-collapse
-      /! links
-      ul.nav.navbar-nav.navbar-right
-        li
-          a.active href="main.html#home"  Home
-        li
-          a href="main.html#about"  About
-        li
-          a href="main.html#resume"  Resume
-        li
-          a href="main.html#services"  Services
-        li
-          a href="main.html#clients"  Clients
-        li
-          a href="main.html#works"  Works
-        li
-          a href="main.html#blog"  Blog
-        li
-          a href="main.html#contact"  Contact
-    /! /.navbar-collapse
-  /! /.container
+= render "_navbar.html"
 /! ====== End Navgition ======
 /! ====== Header ======
 section.sub-header
@@ -52,8 +16,8 @@ section.sub-header
     .v-middle
       /! Caption
       .caption.text-center
-        h1.mb-15 Our Blog
-        h6 All Posts
+        h1.mb-15 Мой блог
+        h6 Все записи
 /! ====== End Header ======
 /! ====== mp-blog ======
 section.mp-blog.section-padding
@@ -199,12 +163,6 @@ section.mp-blog.section-padding
       .col-md-4
         .side-bar
           .widget
-            .search
-              form
-                input name="search" placeholder="Search" type="text" /
-                span.icon
-                  i.fa.fa-search aria-hidden="true"
-          .widget
             .lpost
               .side-tit
                 h6.ctit Latest Posts
@@ -260,7 +218,7 @@ section.mp-blog.section-padding
           .widget
             .follow
               .side-tit
-                h6.ctit To Follow Us
+                h6.ctit Как меня найти
               .social
                 a href="#0"
                   span
@@ -271,35 +229,9 @@ section.mp-blog.section-padding
                 a href="#0"
                   span
                     i.fa.fa-instagram aria-hidden="true"
-                a href="#0"
-                  span
-                    i.fa.fa-linkedin aria-hidden="true"
-                a href="#0"
-                  span
-                    i.fa.fa-vimeo aria-hidden="true"
-                a href="#0"
-                  span
-                    i.fa.fa-pinterest-p aria-hidden="true"
-          .widget
-            .tags
-              .side-tit
-                h6.ctit Tags
-              a href="#0"
-                span Web
-              a href="#0"
-                span Art
-              a href="#0"
-                span Design
-              a href="#0"
-                span Photo
-              a href="#0"
-                span Life style
-              a href="#0"
-                span Creative
-              a href="#0"
-                span All Tags
+          
 /! ====== End mp-blog ======
 /! ====== Footer ======
 footer.gray
-  p Copy Right &copy; By Alex Martin 2017.
+  p COPY RIGHT © BY SOFIYA RASSOHOVA 2018 | ALL RIGHTS RESERVED
 
