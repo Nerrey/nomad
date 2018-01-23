@@ -8,4 +8,8 @@ defmodule NomadWeb.PageController do
   def blog(conn, _params) do
     render conn, "blog.html"
   end
+
+  def blog_single(conn, _params) do
+    render conn, "blog_single.html"
+  end
 end
