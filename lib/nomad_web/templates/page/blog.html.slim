@@ -8,43 +8,7 @@
     i.fa.fa-angle-up aria-hidden="true"
 /! ======End button-top ======
 /! ====== Navgition ======
-nav.navbar.navbar-default
-  .container
-    /! Brand and toggle get grouped for better mobile display
-    .navbar-header
-      button.navbar-toggle.collapsed aria-expanded="false" data-target="#nav-icon-collapse" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      /! logo
-      a href="#"
-      .logo
-        | Ma
-        span> r
-        | tin
-    /! Collect the nav links, and other content for toggling
-    #nav-icon-collapse.collapse.navbar-collapse
-      /! links
-      ul.nav.navbar-nav.navbar-right
-        li
-          a.active href="main.html#home"  Home
-        li
-          a href="main.html#about"  About
-        li
-          a href="main.html#resume"  Resume
-        li
-          a href="main.html#services"  Services
-        li
-          a href="main.html#clients"  Clients
-        li
-          a href="main.html#works"  Works
-        li
-          a href="main.html#blog"  Blog
-        li
-          a href="main.html#contact"  Contact
-    /! /.navbar-collapse
-  /! /.container
+= render "_navbar.html", conn: @conn
 /! ====== End Navgition ======
 /! ====== Header ======
 section.sub-header
