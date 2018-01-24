@@ -1,8 +1,11 @@
 defmodule NomadWeb.PageController do
   use NomadWeb, :controller
+  alias Nomad.Static
 
   def index(conn, _params) do
-    render conn, "index.html"
+    static = Static |> where(type: ^:main) |> Repo.all |> List.first
+
+    render conn, "index.html", info: static.info
   end
 
   def blog(conn, _params) do

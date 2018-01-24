@@ -5,17 +5,17 @@
   span
     i.fa.fa-angle-up[aria-hidden="true"]
 
-= render "_navbar.html", conn: @conn
-= render "_main_title.html", conn: @conn
-= render "_hero.html", conn: @conn
-= render "_resume.html", conn: @conn
-= render "_numbers.html", conn: @conn
+= render "_navbar.html", conn: @conn, info: @info
+= render "_main_title.html", conn: @conn, info: @info
+= render "_hero.html", conn: @conn, info: @info
+= render "_resume.html", conn: @conn, info: @info
+= render "_numbers.html", conn: @conn, info: @info
 / = render "_services.html"
 / = render "_clients.html"
 / = render "_portfolio.html"
 / = render "_hire.html"
-= render "_blog.html", conn: @conn
-= render "_contact.html", conn: @conn
+= render "_blog.html", conn: @conn, info: @info
+= render "_contact.html", conn: @conn, info: @info
 
 
 

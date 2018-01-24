@@ -1,17 +1,20 @@
 .row
   .col-md-6
-    = form_for @changeset, admin_static_path(@conn, :update, %{}), [class: "form-horizontal form-lockable-submit"], fn f ->
-      .col-md-6.col-md-offset-3
-        .panel.panel-default
-          .panel-heading= "Основная информация"
-          .panel-body.no_margin_last
-            .form-group.required
-              = label f, "Вид", class: "col-sm-5 control-label"
-              .col-sm-7
-                = text_input f, :type, type: ""
-                = error_tag f, :type
-         .form-group.text-center
-          = submit "Сохранить", class: "btn btn-success"
+    = form_for @changeset, admin_static_path(@conn, :update, @static), [class: "form-horizontal form-lockable-submit"], fn f ->
+      .panel.panel-default
+        .panel-heading= "Основная информация"
+        .panel-body.no_margin_last
+          .form-group.required
+            = label f, "Вид", class: "col-sm-5 control-label"
+            .col-sm-7
+              = text_input f, :type, type: 1
+              = error_tag f, :type
+            = label f, "Вид", class: "col-sm-5 control-label"
+            .col-sm-12
+              = textarea f, :info, value: raw(@static.info["name"]), name: "static[info][name]", class: "editable"
+
+       .form-group.text-center
+        = submit "Сохранить", class: "btn btn-success"
   .col-md-6
     .panel.panel-default
       .panel-heading= "Основная информация"

@@ -42,7 +42,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Philosopher', sans-serif;
 }
 
 p {
@@ -257,7 +257,6 @@ p {
   margin-bottom: 30px;
   font-weight: 600;
   letter-spacing: 1px;
-  text-transform: uppercase;
 }
 .header .caption .type span {
   color: #d6b161;

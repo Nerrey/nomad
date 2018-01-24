@@ -3,18 +3,20 @@ defmodule NomadWeb.Admin.StaticController do
   alias Nomad.Static
 
   def index(conn, _params) do
-    render conn, "index.html"
+    static = Static |> where(type: ^:main) |> Repo.all |> List.first
+    changeset =  Static.changeset(static, %{})
+    render conn, "index.html", changeset: changeset, static: static
   end
 
-  def update(conn, %{"id" => id} = params) do
-    static = Repo.get!(Static, id)
-    changeset = Static.changeset(static, params)
+  def update(conn, %{"static" => static_params} = params) do
+    static = Repo.get!(Static, params["id"])
+    changeset = Static.changeset(static, static_params)
 
     case Repo.update(changeset) do
       {:ok, static} ->
         conn
         |> put_flash(:info, "Успешно обновлено.")
-        |> redirect(to: static_path(conn, :index))
+        |> redirect(to: admin_static_path(conn, :index))
       {:error, changeset} ->
         render(conn, "index.html", changeset: changeset)
     end

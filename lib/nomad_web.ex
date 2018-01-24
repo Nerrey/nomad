@@ -33,6 +33,8 @@ defmodule NomadWeb do
       import Plug.Conn
       import NomadWeb.Router.Helpers
       import NomadWeb.Gettext
+      import Ecto
+      import Ecto.Query
       alias Nomad.Repo
     end
   end

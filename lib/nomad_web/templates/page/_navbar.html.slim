@@ -17,7 +17,9 @@ nav.navbar.navbar-default
     #nav-icon-collapse.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         li
-          =link "Главная", to: page_path(@conn, :index)
+          a[href="#" data-scroll-nav="0"]
+            | Главная
+          / =link "Главная", to: page_path(@conn, :index)
         li
           a[href="#" data-scroll-nav="1"]
             | Обо мне
