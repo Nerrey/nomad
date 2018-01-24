@@ -60,8 +60,9 @@ $(function() {
 
 
     // typejs
+    let who = $('.header .caption h3').attr("data").split(" ");
     $('.header .caption h3').typed({
-        strings: ["Предприниматель", "Бизнес-тренер", "Музыкант"],
+        strings: who,
         loop: true,
         startDelay: 1000,
         backDelay: 1000,

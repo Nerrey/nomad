@@ -5,8 +5,8 @@ section.header[data-scroll-index="0"]
       .v-middle
         .caption
           h4
-            | Привет, к вашим услугам
+            = raw(@info["greeting"])
           h1
             = raw(@info["name"])
           .type
-            h3
+            h3 data=raw(@info["who"])

@@ -1,6 +1,4 @@
-
-
-h1 p {
+.caption p {
   line-height: unset;
   margin: unset;
   font-size: unset;

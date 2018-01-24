@@ -10,7 +10,9 @@ particlesJS.load('particles-js', 'particles.json', function() {
 */
 
 /* Otherwise just put the config content (json): */
-var editor = new MediumEditor('.editable');
+if (document.getElementsByClassName("editable")[0]) {
+  new MediumEditor('.editable');
+}
 if (document.getElementById("particles-js")) {
 particlesJS('particles-js',
 
