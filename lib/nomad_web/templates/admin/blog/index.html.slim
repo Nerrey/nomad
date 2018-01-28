@@ -10,17 +10,21 @@
       thead
         tr
           th.col-xs-1 #
-          th.col-xs-2= gettext "Заголовок"
-          th.col-xs-7= gettext "Описание"
+          th.col-xs-1= gettext "Заголовок"
+          th.col-xs-6= gettext "Описание"
+          th.col-xs-1= gettext "Дата"
+          th.col-xs-1= gettext "Изображение"
           th.col-xs-2
       tbody
         = for blog <- @blogs do
           tr
-            td= link blog.id, to: admin_blog_path(@conn, :show, blog)
-            td= link blog.title, to: admin_blog_path(@conn, :show, blog)
-            td= link blog.description, to: admin_blog_path(@conn, :show, blog)
+            td= blog.id
+            td= blog.title
+            td= blog.description
+            td= Timex.format!(blog.inserted_at, "{0D}.{0M}.{YYYY}")
+            td
+              = img_tag NomadWeb.Services.S3.get_presigned_url(blog.image), style: "width: 100px"
             td.text-right
-              = link gettext("Показать"), to: admin_blog_path(@conn, :show, blog), class: "btn btn-default btn-xs"
               = link to: admin_blog_path(@conn, :edit, blog), class: "btn btn-default btn-xs" do
                 span.glyphicon.glyphicon-pencil.right_10 aria-hidden="true"
                 = gettext("Изменить")

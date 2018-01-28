@@ -8,7 +8,7 @@
     i.fa.fa-angle-up aria-hidden="true"
 /! ======End button-top ======
 /! ====== Navgition ======
-= render "_navbar.html", conn: @conn
+= render "_navbar.html", conn: @conn, info: @info
 /! ====== End Navgition ======
 /! ====== Header ======
 section.sub-header
@@ -26,110 +26,60 @@ section.mp-blog.section-padding
       /! posts
       .col-md-8
         .posts
-          .item
-            .content
-              .post-img
-                a href="#0"
-                  img alt="image" src="/images/blog/1.jpg" /
-              .post-info
-                a href="#0"
-                h5 Пост 1
-                .mor-inf
-                  ul
-                    li
-                      span.icon
-                        i.fa.fa-calendar aria-hidden="true"
-                      a href="#0"  20 февраля 2018
-                p Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                .mt-50
-                  a.more href="blog-single.html"  Подробнее
-          .item
-            .content
-              .post-img
-                a href="#0"
-                  img alt="image" src="/images/blog/2.jpg" /
-              .post-info
-                a href="#0"
-                h5 Пост 2
-                .mor-inf
-                  ul
-                    li
-                      span.icon
-                        i.fa.fa-calendar aria-hidden="true"
-                      a href="#0"  18 февраля 2018
-                p Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                .mt-50
-                  a.more href="blog-single.html"  Подробнее
-          .item
-            .content
-              .post-img
-                a href="#0"
-                  img alt="image" src="/images/blog/3.jpg" /
-              .post-info
-                a href="#0"
-                h5 Пост 3
-                .mor-inf
-                  ul
-                    li
-                      span.icon
-                        i.fa.fa-calendar aria-hidden="true"
-                      a href="#0"  16 февраля 2018
-                    p Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                .mt-50
-                  a.more href="blog-single.html"  Подробнее
-          .item
-            .content
-              .post-img
-                a href="#0"
-                  img alt="image" src="/images/blog/4.jpg" /
-              .post-info
-                a href="#0"
-                h5 Пост 4
-                .mor-inf
-                  ul
-                    li
-                      span.icon
-                        i.fa.fa-calendar aria-hidden="true"
-                      a href="#0"  15 февраля 2018
-                    p Lid est laborum dolo rumes fugats untras. Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                .mt-50
-                  a.more href="blog-single.html"  Подробнее
-          .numb.text-center
-            a href="#0"
-              span Предыдущий
-            a href="#0"
-              span.active 1
-            a href="#0"
-              span 2
-            a href="#0"
-              span 3
-            a href="#0"
-              span 4
-            a href="#0"
-              span Следующий
+          = for blog <- @blogs do
+            .item
+              .content
+                .post-img
+                  a href="#0"
+                    =img_tag NomadWeb.Services.S3.get_presigned_url(blog.image)
+                .post-info
+                  a href="#0"
+                  h5= raw(blog.title)
+                  .mor-inf
+                    ul
+                      li
+                        span.icon
+                          i.fa.fa-calendar aria-hidden="true"
+                        a href="#0"= Timex.format!(blog.inserted_at, "{0D}.{0M}.{YYYY}")
+                  = raw(blog.description)
+                  .mt-50
+                    =link "Подробнее", to: blog_single_path(@conn, :blog_single, blog), class: "more"
+          / .numb.text-center
+          /   a href="#0"
+          /     span Предыдущий
+          /   a href="#0"
+          /     span.active 1
+          /   a href="#0"
+          /     span 2
+          /   a href="#0"
+          /     span 3
+          /   a href="#0"
+          /     span 4
+          /   a href="#0"
+          /     span Следующий
       /! side bar
       .col-md-4
         .side-bar
           .widget
             .about-bar
               .side-tit
-                h6.ctit Обо мне
-              img alt="image" src="/images/blog/hero.jpg" /
-              p Fusce vitae nulla at lorem pretium semper. Curab itur laoreet, lectus ac dignissim vestibul lorem pretium semper lectus ac dignissim.
+                h6.ctit = raw(@info["about"])
+              img alt="image" src="/images/blog/hero.jpg"
+              = raw(@info["abouttext"])
           .widget
             .follow
               .side-tit
                 h6.ctit Как меня найти
               .social
-                a href="#0"
+                a href=@info["vk"]
                   span
-                    i.fa.fa-facebook aria-hidden="true"
-                a href="#0"
+                    i.fa.fa-vk[aria-hidden="true"]
+                a href=@info["facebook"]
                   span
-                    i.fa.fa-twitter aria-hidden="true"
-                a href="#0"
+                    i.fa.fa-facebook[aria-hidden="true"]
+                a href=@info["instagram"]
                   span
-                    i.fa.fa-instagram aria-hidden="true"
+                    i.fa.fa-instagram[aria-hidden="true"]
 
 /! ====== End mp-blog ======
 /! ====== Footer ======

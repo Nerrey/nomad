@@ -2,30 +2,6 @@
   h1.clearfix
     .pull-left
       = gettext "Образование (%{total_count})", total_count: length(@study)
-.row
-  .col-xs-12
-    table.table.table-striped
-      thead
-        tr
-          th.col-md-1 #
-          th.col-md-1= "Заголовок"
-          th.col-md-2= "Даты"
-          th.col-md-6= "Описание"
-          th.col-md-1= "Позиция"
-          th
-      tbody
-        = for study <- @study do
-          tr
-            td= study.id
-            td= study.title
-            td= study.date
-            td= study.description
-            td= study.position
-            td.text-right
-              = link to: admin_resume_path(@conn, :delete, study), data: [confirm: gettext("Вы уверены?")], class: "btn btn-danger button_delete_in_show" do
-                span.glyphicon.glyphicon-trash.right_10 aria-hidden="true"
-                  = gettext("Удалить")
-
 = form_for @changeset, admin_resume_path(@conn, :create), [class: "form-horizontal form-lockable-submit"], fn f ->
   .panel.panel-default
     .panel-heading= "Главная"
@@ -52,3 +28,27 @@
 
    .form-group.text-center
     = submit "Сохранить", class: "btn btn-success"
+.row
+  .col-xs-12
+    table.table.table-striped
+      thead
+        tr
+          th.col-md-1 #
+          th.col-md-1= "Заголовок"
+          th.col-md-2= "Даты"
+          th.col-md-6= "Описание"
+          th.col-md-1= "Позиция"
+          th
+      tbody
+        = for study <- @study do
+          tr
+            td= study.id
+            td= study.title
+            td= study.date
+            td= study.description
+            td= study.position
+            td.text-right
+              = link to: admin_resume_path(@conn, :delete, study), data: [confirm: gettext("Вы уверены?")], class: "btn btn-danger button_delete_in_show" do
+                span.glyphicon.glyphicon-trash.right_10 aria-hidden="true"
+                  = gettext("Удалить")
+

@@ -42,5 +42,5 @@ config :ex_aws,
     scheme: "http://",
     host: System.get_env("S3_HOST"),
     region: System.get_env("S3_REGION") || "",
-    port: 80
+    port: 9000
   ]

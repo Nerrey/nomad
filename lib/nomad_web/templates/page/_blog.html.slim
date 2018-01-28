@@ -4,57 +4,18 @@ section#blog.blog.section-padding[data-scroll-index="6"]
       h3
         | Последние новости
     .row
-      .col-md-4
-        .item.text-center
-          .img-post
-            a[href="blog.html"]
-              img[src="/images/blog/1.jpg" alt="image"]
-          .cont-post
-            a[href="#"]
-              span.tag
-                | Тема
-            a[href="blog.html"]
+      = for blog <- @blogs do
+        .col-md-4
+          .item.text-center
+            .img-post
+              = link to: blog_path(@conn, :blog) do
+                = img_tag NomadWeb.Services.S3.get_presigned_url(blog.image)
+            .cont-post
+              a[href="blog.html"]
 
-            h6
-              | Заголовок
-            p
-              | Lorem ipsum dolor sit amet, conse ctetur adipi sicing elit, incid idunt ut labore et.
-            a[href="blog-single.html"]
-              span.botn
-                | Читать больше ..
-      .col-md-4
-        .item.text-center
-          .img-post
-            a[href="blog.html"]
-              img[src="/images/blog/2.jpg" alt="image"]
-          .cont-post
-            a[href="#"]
-              span.tag
-                | Тема
-            a[href="blog.html"]
-
-            h6
-              | Заголовок
-            p
-              | Lorem ipsum dolor sit amet, conse ctetur adipi sicing elit, incid idunt ut labore et.
-            a[href="blog-single.html"]
-              span.botn
-                | Читать больше ..
-      .col-md-4
-        .item.text-center
-          .img-post
-            a[href="blog.html"]
-              img[src="/images/blog/3.jpg" alt="image"]
-          .cont-post
-            a[href="#"]
-              span.tag
-                | Тема
-            a[href="blog.html"]
-
-            h6
-              | Заголовок
-            p
-              | Lorem ipsum dolor sit amet, conse ctetur adipi sicing elit, incid idunt ut labore et.
-            a[href="blog-single.html"]
-              span.botn
-                | Читать больше ..
+              h6
+                = raw(blog.title)
+              p
+                = raw("#{String.slice(blog.description, 0..100)}...")
+              =link to: blog_single_path(@conn, :blog_single, blog) do
+                span.botn= "Читать больше .."

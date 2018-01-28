@@ -31,8 +31,8 @@ defmodule NomadWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
-    get "/blog", PageController, :blog
-    get "/blog-single", PageController, :blog_single
+    get "/blog", PageController, :blog, as: :blog
+    get "/blog/:id", PageController, :blog_single, as: :blog_single
   end
 
   scope "/admin", as: :admin, alias: NomadWeb.Admin do
@@ -44,7 +44,7 @@ defmodule NomadWeb.Router do
     resources "/static", StaticController, only: [:index, :update]
     resources "/resume", ResumeController, only: [:index, :create]
     get "/resume/delete/:id", ResumeController, :delete
-    resources "/blog", BlogController, only: [:index, :new, :create, :edit, :update, :show]
+    resources "/blog", BlogController, only: [:index, :new, :create, :edit, :update]
     get "/blog/delete/:id", BlogController, :delete
     resources "/admins", AdminController
   end
