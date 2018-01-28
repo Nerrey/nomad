@@ -1,4 +1,4 @@
-.caption p {
+h5 p, h6 p, h4 p, .logo p, .caption p {
   line-height: unset;
   margin: unset;
   font-size: unset;

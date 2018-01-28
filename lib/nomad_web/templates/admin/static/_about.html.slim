@@ -1,0 +1,83 @@
+= form_for @changeset, admin_static_path(@conn, :update, @static), [class: "form-horizontal form-lockable-submit"], fn f ->
+  .panel.panel-default
+    .panel-heading= "Обо мне"
+    .panel-body.no_margin_last
+      .form-group.required
+        .form-element
+          = label f, "Заголовок", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["about"]), name: "static[info][about]", class: "editable"
+        br
+        .form-element
+          = label f, "Текст", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["abouttext"]), name: "static[info][abouttext]", class: "editable"
+        br
+        .form-element
+          = label f, "Имя", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["infoname"]), name: "static[info][infoname]", class: "editable"
+        br
+        .form-element
+          = label f, "Email", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["mail"]), name: "static[info][mail]", class: "editable"
+        br
+        .form-element
+          = label f, "Дата рождения", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["birth"]), name: "static[info][birth]", class: "editable"
+        br
+        .form-element
+          = label f, "Телефон", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["phone"]), name: "static[info][phone]", class: "editable"
+        br
+        .form-element
+          = label f, "Город", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["place"]), name: "static[info][place]", class: "editable"
+        br
+        .form-element
+          = label f, "Профессия", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["prof"]), name: "static[info][prof]", class: "editable"
+        br
+        .form-element
+          = label f, "Навык 1", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["skill1"]), name: "static[info][skill1]", class: "editable"
+        .form-element
+          = label f, "Уровень навыка 1 (проценты)", class: "col-sm-4 control-label"
+          .col-sm-8
+            = text_input f, :info, value: raw(@static.info["skill1_percentage"]), name: "static[info][skill1_percentage]", class: "form-control"
+        br
+        .form-element
+          = label f, "Навык 2", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["skill2"]), name: "static[info][skill2]", class: "editable"
+        .form-element
+          = label f, "Уровень навыка 2 (проценты)", class: "col-sm-4 control-label"
+          .col-sm-8
+            = text_input f, :info, value: raw(@static.info["skill2_percentage"]), name: "static[info][skill2_percentage]", class: "form-control"
+        br
+        .form-element
+          = label f, "Навык 3", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["skill3"]), name: "static[info][skill3]", class: "editable"
+        .form-element
+          = label f, "Уровень навыка 3 (проценты)", class: "col-sm-4 control-label"
+          .col-sm-8
+            = text_input f, :info, value: raw(@static.info["skill3_percentage"]), name: "static[info][skill3_percentage]", class: "form-control"
+        br
+        .form-element
+          = label f, "Навык 4", class: "col-sm-4 control-label"
+          .col-sm-8
+            = textarea f, :info, value: raw(@static.info["skill4"]), name: "static[info][skill4]", class: "editable"
+        .form-element
+          = label f, "Уровень навыка 4(проценты)", class: "col-sm-4 control-label"
+          .col-sm-8
+            = text_input f, :info, value: raw(@static.info["skill4_percentage"]), name: "static[info][skill4_percentage]", class: "form-control"
+    .form-group.text-center
+      = submit "Сохранить", class: "btn btn-success"
+

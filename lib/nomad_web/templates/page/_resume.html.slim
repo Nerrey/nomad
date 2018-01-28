@@ -20,48 +20,21 @@ section.resume.section-padding[data-scroll-index="2"]
             #tab-1-content.item.active
               .content
                 ul
-                  li
-                    h6.sm-title
-                      | Должность 1
-                    span.date
-                      | 2016 - Настоящее время
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  li
-                    h6.sm-title
-                      | Должность 2
-                    span.date
-                      | 2013 - 2016
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  li
-                    h6.sm-title
-                      | Должность 3
-                    span.date
-                      | 2010 - 2013
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  = for expirience <- @expirience do
+                    li
+                      h6.sm-title
+                        = expirience.title
+                      span.date
+                        = expirience.date
+                      =raw(expirience.description)
             #tab-2-content.item
               .content
                 ul
-                  li
-                    h6.sm-title
-                      | Университет 1
-                    span.date
-                      | 2006 - 2009
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  li
-                    h6.sm-title
-                      | Курсы
-                    span.date
-                      | 2004 - 2006
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  li
-                    h6.sm-title
-                      | Высшая школа
-                    span.date
-                      | 2000 - 2004
-                    p
-                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  = for study <- @study do
+                    li
+                      h6.sm-title
+                        = study.title
+                      span.date
+                        = study.date
+                      =raw(study.description)
+

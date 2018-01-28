@@ -7,81 +7,74 @@ section.hero.section-padding[data-scroll-index="1"]
       .col-md-offset-1.col-md-7.mb-100
         .hero-content
           h4.head-left
-            | Обо мне
-          p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ullamco laboris nisi ut aliquip ex ea commodo
+            = raw(@info["about"])
+          = raw(@info["abouttext"])
           .info
             .row
               .col-md-4.col-sm-6
                 h5
                   span
                     i.icon.ion-person
-                  | Андрей Ковалёв
+                  = raw(@info["infoname"])
               .col-md-4.col-sm-6
                 h5
                   span
                     i.icon.ion-calendar
-                  | 25 марта 1988
+                  = raw(@info["mail"])
               .col-md-4.col-sm-6
                 h5
                   span
                     i.icon.ion-location
-                  | Санкт-Петербург
+                  = raw(@info["birth"])
               .col-md-4.col-sm-6
                 h5
                   span
                     i.icon.ion-email
-                  | sonyafiasko@mail.ru
+                  = raw(@info["phone"])
               .col-md-4.col-sm-6
                 h5
                   span
                     i.icon.ion-android-call
-                  | +79119007994
+                  = raw(@info["place"])
               .col-md-4.col-sm-6
                 h5
                   span
                     i.icon.ion-code-working
-                  | Бизнес-тренер
+                  = raw(@info["prof"])
               .clear-fix
           .social-icon
-            a[href="#0"]
+            a href=@info["vk"]
+              span
+                i.fa.fa-vk[aria-hidden="true"]
+            a href=@info["facebook"]
               span
                 i.fa.fa-facebook[aria-hidden="true"]
-            a[href="#0"]
+            a href=@info["instagram"]
               span
-                i.fa.fa-twitter[aria-hidden="true"]
-            a[href="#0"]
-              span
-                i.fa.fa-youtube[aria-hidden="true"]
-            a[href="#0"]
-              span
-                i.fa.fa-linkedin[aria-hidden="true"]
-            a[href="#0"]
-              span
-                i.fa.fa-github[aria-hidden="true"]
+                i.fa.fa-instagram[aria-hidden="true"]
       .clear-fix
       .col-sm-6
         .skills
           .item
             h6
-              | Скилл 1
+              = raw(@info["skill1"])
             .skills-progress
-              span[data-value="90%"]
+              span data-value=@info["skill1_percentage"]
           .item
             h6
-              | Скилл 2
+              = raw(@info["skill2"])
             .skills-progress
-              span[data-value="80%"]
+              span data-value=@info["skill2_percentage"]
       .col-sm-6
         .skills
           .item
             h6
-              | Скилл 3
+              = raw(@info["skill3"])
             .skills-progress
-              span[data-value="80%"]
+              span data-value=@info["skill3_percentage"]
           .item
             h6
-              | Скилл 4
+              = raw(@info["skill4"])
             .skills-progress
-              span[data-value="85%"]
+              span data-value=@info["skill4_percentage"]
       .clear-fix

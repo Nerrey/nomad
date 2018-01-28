@@ -1,15 +1,16 @@
-defmodule Nomad.Static do
+defmodule Nomad.Blog do
   use NomadWeb, :model
 
-  schema "statics" do
-    field :type, StaticType
-    field :info, :map, default: %{}
+  schema "blogs" do
+    field :image, :string
+    field :title, :string
+    field :description, :string
 
     timestamps()
   end
 
-  @required_fields ~w(type)a
-  @optional_fields ~w(info)a
+  @required_fields ~w()a
+  @optional_fields ~w(image title description)a
 
   def changeset(struct, params \\ %{}) do
     struct

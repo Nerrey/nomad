@@ -43,6 +43,7 @@ defmodule Nomad.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.13"},
+      {:ex_aws, "~> 1.1"},
       {:comeonin, "~> 3.0"},
       {:guardian, "~> 0.14.0"},
       {:phoenix_slime, "~> 0.8.0"},

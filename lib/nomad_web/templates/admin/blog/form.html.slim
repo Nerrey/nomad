@@ -1,0 +1,24 @@
+= form_for @changeset, @action, [class: "form-horizontal", multipart: true], fn f ->
+  .row
+    .col-md-8.col-md-offset-2
+      .panel.panel-default
+        .panel-heading= gettext("Пост")
+        .panel-body.no_margin_last
+          .form-group.required
+            = label f, gettext("Заголовок"), class: "col-sm-3 control-label"
+            .col-sm-9
+              = text_input f, :title, class: "form-control"
+              = error_tag f, :title
+          .form-group.required
+            = label f, gettext("Содержание"), class: "col-sm-3 control-label"
+            .col-sm-9
+              = textarea f, :description, class: "editable"
+              = error_tag f, :description
+          .form-group.required
+            = label f, gettext("Картинка"), class: "col-sm-3 control-label"
+            .col-sm-9
+              = file_input f, :image, class: ""
+              = error_tag f, :image
+        .form-group.text-center
+          = submit gettext("Сохранить"), class: "btn btn-success"
+

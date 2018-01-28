@@ -1,0 +1,29 @@
+.page-header
+  h1.clearfix
+    .pull-left
+      = gettext "Посты (%{total_count})", total_count: length(@blogs)
+    .pull-right
+      = link gettext("Новый пост"), to: admin_blog_path(@conn, :new), class: "btn btn-default"
+.row
+  .col-xs-12
+    table.table.table-striped
+      thead
+        tr
+          th.col-xs-1 #
+          th.col-xs-2= gettext "Заголовок"
+          th.col-xs-7= gettext "Описание"
+          th.col-xs-2
+      tbody
+        = for blog <- @blogs do
+          tr
+            td= link blog.id, to: admin_blog_path(@conn, :show, blog)
+            td= link blog.title, to: admin_blog_path(@conn, :show, blog)
+            td= link blog.description, to: admin_blog_path(@conn, :show, blog)
+            td.text-right
+              = link gettext("Показать"), to: admin_blog_path(@conn, :show, blog), class: "btn btn-default btn-xs"
+              = link to: admin_blog_path(@conn, :edit, blog), class: "btn btn-default btn-xs" do
+                span.glyphicon.glyphicon-pencil.right_10 aria-hidden="true"
+                = gettext("Изменить")
+              = link to: admin_blog_path(@conn, :delete, blog), data: [confirm: gettext("Вы уверены?")], class: "btn btn-danger btn-xs" do
+                span.glyphicon.glyphicon-trash.right_10 aria-hidden="true"
+                = gettext("Удалить")

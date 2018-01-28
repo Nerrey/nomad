@@ -8,10 +8,11 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav
         = if @current_admin do
           li.nav.navbar-nav
-            a href="#"
-              | Link
+            = link "Главная", to: admin_static_path(@conn, :index)
           li.nav.navbar-nav
-            a href="#"  Link
+            = link "Опыт", to: admin_resume_path(@conn, :index)
+          li.nav.navbar-nav
+            = link "Блог", to: admin_blog_path(@conn, :index)
       ul.nav.navbar-nav.navbar-right
         = if @current_admin do
           li

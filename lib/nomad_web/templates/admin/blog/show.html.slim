@@ -1,0 +1,26 @@
+.page-header
+  h1.clearfix
+    .pull-left= @blog.title
+    .pull-right
+      .display_flex.flex_row
+        = link to: admin_blog_path(@conn, :edit, @blog), class: "btn btn-default" do
+          span.glyphicon.glyphicon-pencil.right_10 aria-hidden="true"
+          = gettext("Изменить")
+        = link to: admin_blog_path(@conn, :delete, @blog), data: [confirm: gettext("Вы уверены?")], class: "btn btn-danger button_delete_in_show" do
+          span.glyphicon.glyphicon-trash.right_10 aria-hidden="true"
+          = gettext("Удалить")
+        = link to: admin_blog_path(@conn, :index), class: "btn btn-default" do
+          span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
+          = gettext("Все посты")
+
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading= gettext "Основная информация"
+      .panel-body.no_margin_last
+        dl.dl-horizontal
+          dt.bottom_5= gettext("Имя")
+          dd= @blog.title
+
+  .col-md-6
+

@@ -1,0 +1,9 @@
+.page-header
+  h1.clearfix
+    .pull-left= gettext "Пост # %{blog_id}", blog_id: @blog.id
+    .pull-right
+      = link to: admin_blog_path(@conn, :index), class: "btn btn-default" do
+        span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
+        = gettext("Все пользователи")
+
+= render "form.html", changeset: @changeset, conn: @conn, action: admin_blog_path(@conn, :update, @blog)

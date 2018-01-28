@@ -1,12 +1,15 @@
 .panel-body {
   padding: 10px;
 }
-.medium-editor-element {
+.form-control, .medium-editor-element {
   border: 1px solid #999;
   border-radius: 4px;
   padding: 10px;
+  margin-bottom: 10px;
 }
-.form-element {
-  margin-bottom: 50px;
+
+.btn.btn-default, .btn.btn-danger, .glyphicon {
+  margin-right: 5px;
 }
+
 

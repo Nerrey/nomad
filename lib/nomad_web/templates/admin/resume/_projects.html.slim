@@ -1,0 +1,54 @@
+.page-header
+  h1.clearfix
+    .pull-left
+      = gettext "Опыт (%{total_count})", total_count: length(@expirience)
+.row
+  .col-xs-12
+    table.table.table-striped
+      thead
+        tr
+          th.col-md-1 #
+          th.col-md-1= "Заголовок"
+          th.col-md-2= "Даты"
+          th.col-md-6= "Описание"
+          th.col-md-1= "Позиция"
+          th
+      tbody
+        = for expirience <- @expirience do
+          tr
+            td= expirience.id
+            td= expirience.title
+            td= expirience.date
+            td= expirience.description
+            td= expirience.position
+            td.text-right
+              = link to: admin_resume_path(@conn, :delete, expirience), data: [confirm: gettext("Вы уверены?")], class: "btn btn-danger button_delete_in_show" do
+                span.glyphicon.glyphicon-trash.right_10 aria-hidden="true"
+                  = gettext("Удалить")
+
+= form_for @changeset, admin_resume_path(@conn, :create), [class: "form-horizontal form-lockable-submit"], fn f ->
+  .panel.panel-default
+    .panel-heading= "Главная"
+    .panel-body.no_margin_last
+      .form-group.required
+        .form-element
+        = text_input f, :type, value: "project", class: "form-control hidden"
+        .form-element
+          = label f, "Заголовок", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :title, class: "form-control"
+        .form-element
+          = label f, "Даты", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :date, class: "form-control"
+        .form-element
+          = label f, "Описание", class: "col-sm-3 control-label"
+          .col-sm-9
+            = textarea f, :description, class: "editable"
+        .form-element
+          = label f, "Позиция", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :position, class: "form-control"
+
+   .form-group.text-center
+    = submit "Сохранить", class: "btn btn-success"

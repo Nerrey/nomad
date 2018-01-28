@@ -1,0 +1,27 @@
+= form_for @changeset, admin_static_path(@conn, :update, @static), [class: "form-horizontal form-lockable-submit"], fn f ->
+  .panel.panel-default
+    .panel-heading= "Главная"
+    .panel-body.no_margin_last
+      .form-group.required
+        .form-element
+          = label f, "Заголовок", class: "col-sm-3 control-label"
+          .col-sm-9
+            = textarea f, :info, value: raw(@static.info["title"]), name: "static[info][title]", class: "editable"
+        br
+        .form-element
+          = label f, "Приветствие", class: "col-sm-3 control-label"
+          .col-sm-9
+            = textarea f, :info, value: raw(@static.info["greeting"]), name: "static[info][greeting]", class: "editable"
+        br
+        .form-element
+          = label f, "Заголовок", class: "col-sm-3 control-label"
+          .col-sm-9
+            = textarea f, :info, value: raw(@static.info["name"]), name: "static[info][name]", class: "editable"
+        br
+        .form-element
+          = label f, "Кто", class: "col-sm-3 control-label"
+          .col-sm-9
+            = textarea f, :info, value: raw(@static.info["who"]), name: "static[info][who]", class: "editable"
+
+   .form-group.text-center
+    = submit "Сохранить", class: "btn btn-success"

@@ -1,0 +1,27 @@
+= form_for @changeset, admin_static_path(@conn, :update, @static), [class: "form-horizontal form-lockable-submit"], fn f ->
+  .panel.panel-default
+    .panel-heading= "Форма обратной связи"
+    .panel-body.no_margin_last
+      .form-group.required
+        .form-element
+          = label f, "Телефон", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :info, value: @static.info["mobile"], name: "static[info][mobile]", class: "form-control"
+        br
+        .form-element
+          = label f, "Улица", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :info, value: @static.info["address_street"], name: "static[info][address_street]", class: "form-control"
+        br
+        .form-element
+          = label f, "Город", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :info, value: @static.info["address_city"], name: "static[info][address_city]", class: "form-control"
+        br
+        .form-element
+          = label f, "Email", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :info, value: @static.info["contact_email"], name: "static[info][contact_email]", class: "form-control"
+
+   .form-group.text-center
+    = submit "Сохранить", class: "btn btn-success"

@@ -1,0 +1,22 @@
+= form_for @changeset, admin_static_path(@conn, :update, @static), [class: "form-horizontal form-lockable-submit"], fn f ->
+  .panel.panel-default
+    .panel-heading= "Соц сети"
+    .panel-body.no_margin_last
+      .form-group.required
+        .form-element
+          = label f, "Vkontakte", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :info, value: @static.info["vk"], name: "static[info][vk]", class: "form-control"
+        br
+        .form-element
+          = label f, "Facebook", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :info, value: @static.info["facebook"], name: "static[info][facebook]", class: "form-control"
+        br
+        .form-element
+          = label f, "Instagram", class: "col-sm-3 control-label"
+          .col-sm-9
+            = text_input f, :info, value: @static.info["instagram"], name: "static[info][instagram]", class: "form-control"
+
+   .form-group.text-center
+    = submit "Сохранить", class: "btn btn-success"

@@ -56,3 +56,5 @@ config :nomad, Nomad.Repo,
   database: "nomad_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "dev.local.exs"

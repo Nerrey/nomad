@@ -10,8 +10,8 @@ defmodule NomadWeb.Admin.StaticController do
 
   def update(conn, %{"static" => static_params} = params) do
     static = Repo.get!(Static, params["id"])
-    changeset = Static.changeset(static, static_params)
-
+    synytize_params = %{"info" => Map.merge(static.info, static_params["info"])}
+    changeset = Static.changeset(static, synytize_params)
     case Repo.update(changeset) do
       {:ok, static} ->
         conn

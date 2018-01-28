@@ -36,37 +36,31 @@ section.contact.section-padding[data-scroll-index="7"]
               | Телефон :
               br
               span
-                | +7 911 900 79 94
+                = @info["mobile"]
           .item
             span.icon.ion-ios-location
             h6
               | Адрес:
               br
               span
-                | 3481 Melrose Place,
+                = raw(@info["address_street"])
                 br
-                | Санкт-Петербург
+                = raw(@info["address_city"])
           .item
             span.icon.ion-ios-email
             h6
               | Email :
               br
               span
-                | sonyafiasko@gmail.com
+                = raw(@info["contact_email"])
           .social-icon
-            a[href="#0"]
+            a href=@info["vk"]
+              span
+                i.fa.fa-vk[aria-hidden="true"]
+            a href=@info["facebook"]
               span
                 i.fa.fa-facebook[aria-hidden="true"]
-            a[href="#0"]
-              span
-                i.fa.fa-twitter[aria-hidden="true"]
-            a[href="#0"]
-              span
-                i.fa.fa-linkedin[aria-hidden="true"]
-            a[href="#0"]
-              span
-                i.fa.fa-pinterest-p[aria-hidden="true"]
-            a[href="#0"]
+            a href=@info["instagram"]
               span
                 i.fa.fa-instagram[aria-hidden="true"]
       .col-sm-12.text-center

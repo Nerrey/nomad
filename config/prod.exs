@@ -29,3 +29,18 @@ config :nomad, Nomad.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "20")
+
+config :nomad,
+  aws_bucket: System.get_env("S3_BUCKET"),
+  aws_host: System.get_env("S3_HOST")
+
+config :ex_aws,
+  access_key_id: [System.get_env("S3_ACCESS_KEY_ID") || "", :instance_role],
+  secret_access_key: [System.get_env("S3_ACCESS_KEY") || "", :instance_role],
+  region: System.get_env("S3_REGION") || "",
+  s3: [
+    scheme: "http://",
+    host: System.get_env("S3_HOST"),
+    region: System.get_env("S3_REGION") || "",
+    port: 80
+  ]

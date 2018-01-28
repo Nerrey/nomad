@@ -42,6 +42,10 @@ defmodule NomadWeb.Router do
     pipe_through [:check_auth] # Use the default browser stack
     get "/sessions/logout/:id", SessionController, :logout
     resources "/static", StaticController, only: [:index, :update]
+    resources "/resume", ResumeController, only: [:index, :create]
+    get "/resume/delete/:id", ResumeController, :delete
+    resources "/blog", BlogController, only: [:index, :new, :create, :edit, :update, :show]
+    get "/blog/delete/:id", BlogController, :delete
     resources "/admins", AdminController
   end
 
