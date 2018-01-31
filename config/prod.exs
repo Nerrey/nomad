@@ -15,14 +15,14 @@ use Mix.Config
 # which you typically run after static files are built.
 config :nomad, NomadWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: (System.get_env("HOST") || "95.213.195.185"), port: 80],
+  http: [port: 80],
+  url: [host: System.get_env("HOST") || "95.213.195.185", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :nomad, NomadWeb.Endpoint,
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
+config :nomad, NomadWeb.Endpoint, secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Configure your database
 config :nomad, Nomad.Repo,
