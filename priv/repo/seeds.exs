@@ -9,5 +9,24 @@ if !Repo.get_by(Admin, name: "admin") do
   })
 end
 
+rows =
+  [
+    %{
+      type: :main,
+      info: %{a: :b}
+    },
+    %{
+      type: :about,
+      info: %{a: :b}
+    }
+  ]
+  |> Enum.map(
+    &(&1
+      |> Map.merge(%{
+        inserted_at: Timex.now(),
+        updated_at: Timex.now()
+      }))
+  )
+
 Repo.delete_all(Static)
 Repo.insert_all(Static, rows)
